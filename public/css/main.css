@@ -1,0 +1,6 @@
+/* This file is reserved for overriding and extending the template styles. */
+
+.react-datepicker__day--disabled {
+    /* color: red !important; */
+    /* background-color:var(--primary) !important */
+  }
