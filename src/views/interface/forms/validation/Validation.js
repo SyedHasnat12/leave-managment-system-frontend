@@ -3,6 +3,7 @@ import { Card, Col, Row } from 'react-bootstrap';
 import BreadcrumbList from 'components/breadcrumb-list/BreadcrumbList';
 import HtmlHead from 'components/html-head/HtmlHead';
 import Scrollspy from 'components/scrollspy/Scrollspy';
+import { TabularDataButtons } from 'views/blocks/tabulardata/TabularDataButtons';
 import ValidationFormikBasic from './ValidationFormikBasic';
 import ValidationStandard from './ValidationStandard';
 import ValidationStandardWithTooltip from './ValidationStandardWithTooltip';
@@ -11,7 +12,7 @@ import ValidationTopLabel from './ValidationTopLabel';
 import ValidationFloatingLabel from './ValidationFloatingLabel';
 import ValidationFilled from './ValidationFilled';
 import ValidationPositions from './ValidationPositions';
-import { TabularDataButtons } from 'views/blocks/tabulardata/TabularDataButtons';
+
 
 const Validation = () => {
   const title = 'Leave Request Form';

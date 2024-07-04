@@ -32,7 +32,7 @@ const DashboardsAnalytic = () => {
 
   const { isLogin, currentUser } = useSelector((state) => state.auth);
 
-  const [isShow , setIsShow ] = useState(currentUser.role != 'user'); 
+  const [isShow , setIsShow ] = useState(currentUser.role !== 'user'); 
 
   return (
     <>

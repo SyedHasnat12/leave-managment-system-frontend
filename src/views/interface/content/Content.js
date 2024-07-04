@@ -38,7 +38,7 @@ const ContentPage = () => {
           <Card className="h-100">
             <Card.Body className="row gx-4">
               <Col xs="auto">
-                <CsLineIcons icon="acorn" className="text-primary" />
+                <CsLineIcons icon="leave" className="text-primary" />
               </Col>
               <Col>
                 <NavLink to="/interface/content/icons" className="heading stretched-link d-block">

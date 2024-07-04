@@ -10,7 +10,7 @@ export const TabularDataButtons = () => {
 
   const { isLogin, currentUser } = useSelector((state) => state.auth);
 
-  const [isShow , setIsShow ] = useState(currentUser.role != 'user'); 
+  const [isShow , setIsShow ] = useState(currentUser.role !== 'user'); 
 
   const [leavesRequest, setLeaveRequest] = useState([]);
 

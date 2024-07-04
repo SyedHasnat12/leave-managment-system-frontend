@@ -8,7 +8,7 @@ import csLineIconsTags from './data/cs-line-icons-tags';
 
 const CsLineIconsPage = () => {
   const title = 'CS Line Icons';
-  const description = 'A cute line icon set crafted exclusively for Acorn.';
+  const description = 'A cute line icon set crafted exclusively for leave.';
 
   const breadcrumbs = [
     { to: '', text: 'Home' },

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink , useHistory } from 'react-router-dom';
 import { Button, Col, Form, Row } from 'react-bootstrap';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
@@ -8,7 +8,6 @@ import CsLineIcons from 'cs-line-icons/CsLineIcons';
 import HtmlHead from 'components/html-head/HtmlHead';
 import { USER_ROLE } from 'constants.js';
 import Select from 'react-select';
-import { useHistory } from 'react-router-dom';
 import { API_URL } from 'config';
 import axios from 'axios';
 import { useSnackbar } from 'notistack';
@@ -31,7 +30,7 @@ const Register = () => {
   });
   const initialValues = { name: '', email: '', password: '', terms: false };
   const onSubmit = (values , { setFieldError }) => {
-    let body = {
+    const body = {
       "employeeNo": values?.employeeNo,
       "firstName": values?.firstName,
       "lastName": values?.lastName,
@@ -43,8 +42,6 @@ const Register = () => {
 
     axios.post(`${API_URL}/User/register` , body).then((res) => {
       const {isSuccess , message} = res.data;
-      
-      debugger
       if(isSuccess){
         enqueueSnackbar(message , { 
           variant: 'success',
@@ -55,8 +52,7 @@ const Register = () => {
           variant: 'error',
         })
       }
-    }).catch((error) => {
-      debugger  
+    }).catch((error) => {  
       setFieldError('employeeNo', 'Already Exist EmployeeNo');
       enqueueSnackbar("There is some error to register this user. Please try again" , { 
         variant: 'error',

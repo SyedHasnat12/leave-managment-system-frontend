@@ -8,7 +8,7 @@ import HtmlHead from 'components/html-head/HtmlHead';
 
 const ComingSoon = () => {
   const title = 'Coming Soon';
-  const description = 'Acorn will be available soon!';
+  const description = 'leave will be available soon!';
 
   const second = 1000;
   const minute = second * 60;
@@ -55,7 +55,7 @@ const ComingSoon = () => {
           </NavLink>
         </div>
         <div className="mb-3">
-          <h2 className="cta-1 mb-0 text-primary">Acorn will be available soon!</h2>
+          <h2 className="cta-1 mb-0 text-primary">leave will be available soon!</h2>
         </div>
         <div className="mb-5 sh-9">
           <Countdown date={Date.now() + date} intervalDelay={0} precision={3} renderer={renderer} />

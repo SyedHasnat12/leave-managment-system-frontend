@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
@@ -8,7 +8,7 @@ import CsLineIcons from 'cs-line-icons/CsLineIcons';
 import HtmlHead from 'components/html-head/HtmlHead';
 import { useSnackbar } from 'notistack';
 
-import { useHistory } from 'react-router-dom';
+
 import axios from 'axios';
 import { API_URL } from 'config';
 import { setCurrentUser } from 'auth/authSlice';
@@ -28,7 +28,7 @@ const Login = () => {
   const initialValues = { email: '', password: '' };
   const onSubmit = (values , { setFieldError }) => {
     
-    let body = {
+    const body = {
       "email": values?.email,
       "password": values?.password
     }
@@ -36,11 +36,11 @@ const Login = () => {
     axios.post(`${API_URL}/User/login` , body).then((res) => {
       console.log('submit form', res)
       const {isSuccess , message , Token , user} = res?.data;
-      if(!!isSuccess){
+      if(isSuccess){
         enqueueSnackbar(message , { 
           variant: 'success',
         })
-        user.name = user.firstName +' '+user.lastName
+        user.name = user.firstName
         localStorage.setItem('authToken' , Token);
         localStorage.setItem('userId' , user?.userId);
         dispatch(setCurrentUser(user));

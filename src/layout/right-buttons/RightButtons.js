@@ -44,7 +44,7 @@ const RightButtons = () => {
         <OverlayTrigger delay={{ show: 1000, hide: 0 }} overlay={<Tooltip>Purchase</Tooltip>} placement="left">
           <Button
             variant="primary"
-            href="https://themeforest.net/item/acorn-react-admin-template/33951408"
+            href="/"
             rel="noreferrer"
             target="_blank"
             className="settings-button p-0"

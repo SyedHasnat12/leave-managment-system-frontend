@@ -39,13 +39,13 @@ const IconsPage = () => {
           <Card className="h-100">
             <Card.Body className="row gx-4">
               <Col xs="auto">
-                <CsLineIcons icon="acorn" className="text-primary" />
+                <CsLineIcons icon="leave" className="text-primary" />
               </Col>
               <Col>
                 <NavLink to="/interface/content/icons/cs-line-icons" className="heading stretched-link d-block">
                   CS Line Icons
                 </NavLink>
-                <div className="text-muted">A cute line icon set crafted exclusively for Acorn.</div>
+                <div className="text-muted">A cute line icon set crafted exclusively for leave.</div>
               </Col>
             </Card.Body>
           </Card>
@@ -54,7 +54,7 @@ const IconsPage = () => {
           <Card className="h-100">
             <Card.Body className="row gx-4">
               <Col xs="auto">
-                <CsLineIcons icon="acorn" className="text-primary" />
+                <CsLineIcons icon="leave" className="text-primary" />
               </Col>
               <Col>
                 <NavLink to="/interface/content/icons/cs-interface-icons" className="heading stretched-link d-block">

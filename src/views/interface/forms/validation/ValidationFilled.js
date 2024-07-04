@@ -14,9 +14,11 @@ import {  useSnackbar } from 'notistack'
 
 const ValidationFilled = () => {
 
+  const [selectValue, setSelectValue] = useState();
   const { enqueueSnackbar } = useSnackbar()
   const [excludedDates, setExcludedDates] = useState([]);
 
+  
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().required('Name is required'),
@@ -27,8 +29,10 @@ const ValidationFilled = () => {
   });
   const { isLogin, currentUser } = useSelector((state) => state.auth);
   const initialValues = { name: currentUser?.name, empNo: currentUser?.employeeNo, leaveType: '', startDate: null ,endDate: null  };
+  
+  
   const onSubmit = (values) => {
-    let body = {
+    const body = {
       "userId" : currentUser?.userId,
       "startDate" :values?.startDate,
       "endDate" : values?.endDate,
@@ -43,23 +47,8 @@ const ValidationFilled = () => {
         enqueueSnackbar(message , { 
           variant: 'success',
         })
-        resetForm();
+        // resetForm();
         setSelectValue('');
-      } else {
-        enqueueSnackbar("There is some error to submit Leave Request" , { 
-          variant: 'error',
-        })
-      }
-      
-    });
-  }
-  const getHolidays = () => {
-    axios.get(`${API_URL}/Holiday/getHolidays`).then((res) => {
-      console.log('submit form', res)
-      const {isSuccess , message , data} = res.data;
-      if(isSuccess){
-        let ex = data.map(holiday => new Date(holiday.date));
-        setExcludedDates(ex);
       } else {
         enqueueSnackbar("There is some error to submit Leave Request" , { 
           variant: 'error',
@@ -70,8 +59,25 @@ const ValidationFilled = () => {
   }
 
   const formik = useFormik({ initialValues, validationSchema, onSubmit });
-  const { handleSubmit, handleChange, values, touched, errors, setFieldValue , resetForm  } = formik;
+  const { handleSubmit, handleChange, values, touched, errors, setFieldValue   } = formik;
 
+  const getHolidays = () => {
+    axios.get(`${API_URL}/Holiday/getHolidays`).then((res) => {
+      console.log('submit form', res)
+      const {isSuccess , message , data} = res.data;
+      if(isSuccess){
+        const ex = data.map(holiday => new Date(holiday.date));
+        setExcludedDates(ex);
+      } else {
+        enqueueSnackbar("There is some error to submit Leave Request" , { 
+          variant: 'error',
+        })
+      }
+      
+    });
+  }
+
+ 
 
   useEffect(() => {
     getHolidays();
@@ -84,7 +90,7 @@ const ValidationFilled = () => {
     return day !== 0 && day !== 6;
   };
   // Select
-  const [selectValue, setSelectValue] = useState();
+  
   const options = [
     { value: 'Annual Leave', label: 'Annual Leave' },
     { value: 'Sick Leave', label: 'Sick Leave' },

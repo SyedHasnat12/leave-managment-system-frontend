@@ -10,10 +10,11 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import bootstrapPlugin from '@fullcalendar/bootstrap';
 
-import ModalAddEdit from './components/ModalAddEdit';
-import { getEvents, setSelectedEvent, updateEvent } from './calendarSlice';
 import { TabularDataButtons } from 'views/blocks/tabulardata/TabularDataButtons';
 import { TabularDataBadges } from 'views/blocks/tabulardata/TabularDataBadges';
+import ModalAddEdit from './components/ModalAddEdit';
+import { getEvents, setSelectedEvent, updateEvent } from './calendarSlice';
+
 
 const CustomToggle = React.forwardRef(({ onClick }, ref) => (
   <Button

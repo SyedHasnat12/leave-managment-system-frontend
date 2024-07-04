@@ -26,12 +26,12 @@ const App = () => {
   const location = useLocation();
 
   const getUser = () => {
-    let userId = localStorage.getItem('userId');
+    const userId = localStorage.getItem('userId');
     if (userId) {
       axios.get(`${API_URL}/User/profile/${userId}`).then((res) => {
         const { isSuccess, message, user } = res.data;
         if (isSuccess) {
-          user.name = user.firstName +' '+user.lastName
+          user.name = user.firstName 
           dispatch(setCurrentUser(user));
           if (location.pathname === '/login' || location.pathname === '/register') {
             history.push('/dashboards/default');
